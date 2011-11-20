@@ -19,6 +19,7 @@
                         - Supprot jQuery Mobile.
                         - Internationalization and Japanese translation.
                         - Optimize bubble icon size.
+  1.1.1 :       - Android 4.0 support.
   
   ##########################
 
@@ -253,6 +254,8 @@ google.bookmarkbubble.Bubble.prototype.IMAGE_PLAYBOOK_BOOKMARK_DATA_URL_ = 'data
 google.bookmarkbubble.Bubble.prototype.msg = {
   android: 
     '<b>Install this app:</b><br /> 1) Add to Bookmarks,<br /> 2) Tap and Hold the bookmark,<br /> 3) Select "<b>Add Shortcut to Home</b>"',
+  android4: 
+    '<b>Install this app:</b><br /> 1) Push menu button,<br /> 2) Select "<b>Save to bookmarks</b>",<br /> 3b) Select "<b>Add to</b>" and then "<b>Home</b>"',
   blackberry: 
     '<b>Install this app:</b><br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_BLACKBERRY_ICON_DATA_URL_ +'" style="height: 1em;display: inline-block;padding:0;margin:0" />, select "<b>Add to Home Screen</b>"',
   playbook: 
@@ -305,6 +308,14 @@ google.bookmarkbubble.Bubble.prototype.PLAYBOOK_USERAGENT_REGEX_ = /PlayBook/;
  */
 google.bookmarkbubble.Bubble.prototype.IOS_VERSION_USERAGENT_REGEX_ =
     /OS (\d)_(\d)(?:_(\d))?/;
+
+/**
+ * Regular expression for extracting the Android version.
+ * @type {!RegExp}
+ * @private
+ */
+google.bookmarkbubble.Bubble.prototype.ANDROID_VERSION_USERAGENT_REGEX_ =
+    /Android (\d)\.(\d)(?:\.(\d))?/;
 
 
 /**
@@ -486,6 +497,18 @@ google.bookmarkbubble.Bubble.prototype.getIosVersion_ = function() {
   return this.getVersion_.apply(this, groups);
 };
 
+/**
+ * Gets the Android version of the device.
+ * @return {number} The Android version.
+ * @private
+ */
+google.bookmarkbubble.Bubble.prototype.getAndroidVersion_ = function() {
+  var groups = this.ANDROID_VERSION_USERAGENT_REGEX_.exec(
+      window.navigator.userAgent) || [];
+  groups.shift();
+  return this.getVersion_.apply(this, groups);
+};
+
 
 /**
  * Positions the bubble at the bottom of the viewport using an animated
@@ -628,8 +651,12 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
 	// The "Add to Home Screen" text is intended to be the exact same text
 	// that is displayed in the menu of Android / Mobile Safari.
 	if (isAndroid) { 
-		bubbleInner.innerHTML = this.msg.android;
-		bubbleInner.style.font = '0.625em sans-serif';
+               bubbleInner.style.font = '0.625em sans-serif';
+               if (this.getAndroidVersion_() < this.getVersion_(4, 0)) {
+ 		  bubbleInner.innerHTML = this.msg.android;
+               } else {
+ 		  bubbleInner.innerHTML = this.msg.android4;
+               }
 	} else if(isBlackBerry) {
 		bubbleInner.innerHTML = this.msg.blackberry;
 	} else if(isPlayBook) {
