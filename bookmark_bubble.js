@@ -255,7 +255,7 @@ google.bookmarkbubble.Bubble.prototype.msg = {
   android: 
     '<b>Install this app:</b><br /> 1) Add to Bookmarks,<br /> 2) Tap and Hold the bookmark,<br /> 3) Select "<b>Add Shortcut to Home</b>"',
   android4: 
-    '<b>Install this app:</b><br /> 1) Push menu button,<br /> 2) Select "<b>Save to bookmarks</b>",<br /> 3b) Select "<b>Add to</b>" and then "<b>Home</b>"',
+    '<b>Install this app:</b><br /> 1) Tap "..." icon,<br /> 2) Select "<b>Save to bookmarks</b>",<br /> 3b) Select "<b>Add to</b>" and then "<b>Home</b>"',
   blackberry: 
     '<b>Install this app:</b><br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_BLACKBERRY_ICON_DATA_URL_ +'" style="height: 1em;display: inline-block;padding:0;margin:0" />, select "<b>Add to Home Screen</b>"',
   playbook: 
@@ -553,7 +553,8 @@ google.bookmarkbubble.Bubble.prototype.autoDestruct_ = function() {
  * @private
  */
 google.bookmarkbubble.Bubble.prototype.getVisibleYPosition_ = function() {
-  return this.isIpad_() || this.isPlayBook_() ? window.pageYOffset + 17 :
+  return this.isIpad_() || this.isPlayBook_() || this.getAndroidVersion_() >= this.getVersion_(4, 0) ?
+      window.pageYOffset + 17 :
       window.pageYOffset - this.element_.offsetHeight + window.innerHeight - 17;
 };
 
@@ -564,7 +565,8 @@ google.bookmarkbubble.Bubble.prototype.getVisibleYPosition_ = function() {
  * @private
  */
 google.bookmarkbubble.Bubble.prototype.getHiddenYPosition_ = function() {
-  return this.isIpad_() || this.isPlayBook_() ? window.pageYOffset - this.element_.offsetHeight :
+  return this.isIpad_() || this.isPlayBook_() || this.getAndroidVersion_() >= this.getVersion_(4, 0) ?
+      window.pageYOffset - this.element_.offsetHeight :
       window.pageYOffset + window.innerHeight;
 };
 
@@ -634,7 +636,11 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   var bubbleInner = document.createElement('div');
   bubbleInner.style.position = 'relative';
   bubbleInner.style.width = '214px';
-  bubbleInner.style.margin = isIpad ? '0 0 0 82px' : '0 auto';
+  if (this.getAndroidVersion_() >= this.getVersion_(4, 0)) {
+    bubbleInner.style.margin = '0 0 0 ' +(window.innerWidth - 240) + 'px';
+  } else {
+    bubbleInner.style.margin = isIpad ? '0 0 0 82px' : '0 auto';
+  } 
   bubbleInner.style.border = '2px solid #fff';
   bubbleInner.style.padding = '1em 1em 1em 0.5em';
   bubbleInner.style.WebkitBorderRadius = '8px';
@@ -642,7 +648,7 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   bubbleInner.style.WebkitBackgroundSize = '100% 8px';
   bubbleInner.style.backgroundColor = '#eee';
   bubbleInner.style.background = '#cddcf3 -webkit-gradient(linear, ' +
-      'left bottom, left top, ' + isIpad || isPlayBook ?
+      'left bottom, left top, ' + isIpad || isPlayBook || this.getAndroidVersion_() >= this.getVersion_(4, 0) ?
           'from(#cddcf3), to(#b3caed)) no-repeat top' :
           'from(#b3caed), to(#cddcf3)) no-repeat bottom';
   bubbleInner.style.font = '0.75em sans-serif';
@@ -693,8 +699,14 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   if (isIpad || isPlayBook) {
     arrow.style.WebkitTransform = 'rotate(180deg)';
     arrow.style.top = '-19px';
+    arrow.style.left = '111px';
+  } else if (this.getAndroidVersion_() >= this.getVersion_(4, 0)) {
+    arrow.style.WebkitTransform = 'scale(1, -1)';
+    arrow.style.top = '-19px';
+    arrow.style.left = '180px';
   } else {
     arrow.style.bottom = '-19px';
+    arrow.style.left = '111px';
   }
   bubbleInner.appendChild(arrow);
 
