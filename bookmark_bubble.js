@@ -248,14 +248,19 @@ google.bookmarkbubble.Bubble.prototype.IMAGE_SAFARI_FORWARD_DATA_URL_ = 'data:im
 
 google.bookmarkbubble.Bubble.prototype.IMAGE_PLAYBOOK_BOOKMARK_DATA_URL_ = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAMAAADypuvZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NjhEMjhFOTZGMzI4MTFFMDk1OUZGOTUxMzQxOTZBOTUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NjhEMjhFOTdGMzI4MTFFMDk1OUZGOTUxMzQxOTZBOTUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2OEQyOEU5NEYzMjgxMUUwOTU5RkY5NTEzNDE5NkE5NSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2OEQyOEU5NUYzMjgxMUUwOTU5RkY5NTEzNDE5NkE5NSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pmi5WPMAAAAwUExURb29vdPT08fHx5aWluTk5GlpaXx8fOzs7KysrPX19VZWVoiIiP39/WFhYaKiov///2c8oVAAAAAQdFJOU////////////////////wDgI10ZAAABEElEQVR42uzW0ZKDIAwF0CCRACH0//92rdVaBYHs085seSQeB66QER6/GPBF/wsFCOVkjLGJaCY9ggh6xJHVCCUKahEsdVCixEudkw6RLHWhz6fPo4ZgrYAO8VphFUJZK0V+zT3B9j7QIN4Qd9CU/XvY99LtMZmnEiHH9mCsLC/5pvGpvqdpviViboNAd2McNm5usFVjQ/O6VzfmU69HFBubp4HGgmc141A3OqfhhloYyTlsGkFw2RMMoHRN3aY+oiI96iOzB+D3QEwfbV/X0oO2hfo+Wt8vrxmQRuhw6Q5uX5FxtU5RoGfg+TifId+G/jFrr2dtOYu2g0iKq4OuHvqBTC6vTsjm+x/xJ9CPAAMAEPqQqkGB5zYAAAAASUVORK5CYII=';
 
+
+google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID3_BOOKMARK_DATA_URL_ = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAACMUlEQVRYR+2WzcdqURTGIxGJSEQiEpGIlGgUKY0SiWiURmnyJiLRIJESKY0S6R9d129TqnPq7HN6r1zuQxzb2ms961kfO5d8Ga4vx5d/m0C/3xd+n+AjBeLxuMRisU/iOy/BYrEQCCSTSZnP545JOFagUCjIcDiUwWAgfDuFIwLH4/FB+mg0Kpw5gSMCjUZDqtXqLV6tVpN6ve4kvrMeIOP9fn8LuNvtHDejbQUYu2w2a8g2k8mofrALUwJkN5vN5OfnR3q9niB5qVRSzeb3+2U6nRriMAk+n0/ZYMudbrerGhV7fK5WK8O9BwJk4HK5BInz+bzKtFwuS6vVUkRGo5Gs1+uXSW42GxXwSpq7KAOpSCSifD8vLoMCGAQCgYca25X12X673UooFDLdmqYlQDKv1yvj8fjT2Eo1fE0mE1NfL5uQmlFv5HQKegA1Kc0rvJ2Cy+Ui4XBYmHO7YE9w93Q6vb2qNYbsezpbF8ViUdLptJa5FgGUCAaDWg6xpeGsMr860yJAUzJOukilUtovpBaBdrttqw/omWazqcVXiwALiXF6Bmdm48V5Lpf7PQL86zkcDjeH1JeScM6P7/vnmG+2qQ4sFWCL8c/nCsrBbHc6HcPZvexMzrv5125CFlGlUpHlcqnmmnKcz2dDcqjCzmdaeC94B3SWmKUCNJTb7ZZEImH6Cj4z4VVEMY/Ho4hbwZIAI4XsdsEdnWVkScBu4Ht7s/f/2d9fJaBD/j+BryvwBySPr9aPfFVqAAAAAElFTkSuQmCC';
+
 /**
  * Popup message to create shortcut to Home.
  */
 google.bookmarkbubble.Bubble.prototype.msg = {
   android: 
     '<b>Install this app:</b><br /> 1) Add to Bookmarks,<br /> 2) Tap and Hold the bookmark,<br /> 3) Select "<b>Add Shortcut to Home</b>"',
+  android3: 
+    '<b>Install this app:</b><br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID3_BOOKMARK_DATA_URL_ +'" style="height: 1.5em;display: inline-block;padding:0;margin:0;" />,<br /> select "<b>Add to</b>" and then "<b>Home screen</b>"',
   android4: 
-    '<b>Install this app:</b><br /> 1) Tap "..." icon,<br /> 2) Select "<b>Save to bookmarks</b>",<br /> 3b) Select "<b>Add to</b>" and then "<b>Home</b>"',
+    '<b>Install this app:</b><br /> 1) Tap "..." icon,<br /> 2) Select "<b>Save to bookmarks</b>",<br /> 3) Select "<b>Add to</b>" and then "<b>Home</b>"',
   blackberry: 
     '<b>Install this app:</b><br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_BLACKBERRY_ICON_DATA_URL_ +'" style="height: 1em;display: inline-block;padding:0;margin:0" />, select "<b>Add to Home Screen</b>"',
   playbook: 
@@ -553,7 +558,7 @@ google.bookmarkbubble.Bubble.prototype.autoDestruct_ = function() {
  * @private
  */
 google.bookmarkbubble.Bubble.prototype.getVisibleYPosition_ = function() {
-  return this.isIpad_() || this.isPlayBook_() || this.getAndroidVersion_() >= this.getVersion_(4, 0) ?
+  return this.isIpad_() || this.isPlayBook_() || this.getAndroidVersion_() >= this.getVersion_(3, 0) ?
       window.pageYOffset + 17 :
       window.pageYOffset - this.element_.offsetHeight + window.innerHeight - 17;
 };
@@ -565,7 +570,7 @@ google.bookmarkbubble.Bubble.prototype.getVisibleYPosition_ = function() {
  * @private
  */
 google.bookmarkbubble.Bubble.prototype.getHiddenYPosition_ = function() {
-  return this.isIpad_() || this.isPlayBook_() || this.getAndroidVersion_() >= this.getVersion_(4, 0) ?
+  return this.isIpad_() || this.isPlayBook_() || this.getAndroidVersion_() >= this.getVersion_(3, 0) ?
       window.pageYOffset - this.element_.offsetHeight :
       window.pageYOffset + window.innerHeight;
 };
@@ -636,7 +641,7 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   var bubbleInner = document.createElement('div');
   bubbleInner.style.position = 'relative';
   bubbleInner.style.width = '214px';
-  if (this.getAndroidVersion_() >= this.getVersion_(4, 0)) {
+  if (this.getAndroidVersion_() >= this.getVersion_(3, 0)) {
     bubbleInner.style.margin = '0 0 0 ' +(window.innerWidth - 240) + 'px';
   } else {
     bubbleInner.style.margin = isIpad ? '0 0 0 82px' : '0 auto';
@@ -648,7 +653,7 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   bubbleInner.style.WebkitBackgroundSize = '100% 8px';
   bubbleInner.style.backgroundColor = '#eee';
   bubbleInner.style.background = '#cddcf3 -webkit-gradient(linear, ' +
-      'left bottom, left top, ' + isIpad || isPlayBook || this.getAndroidVersion_() >= this.getVersion_(4, 0) ?
+      'left bottom, left top, ' + isIpad || isPlayBook || this.getAndroidVersion_() >= this.getVersion_(3, 0) ?
           'from(#cddcf3), to(#b3caed)) no-repeat top' :
           'from(#b3caed), to(#cddcf3)) no-repeat bottom';
   bubbleInner.style.font = '0.75em sans-serif';
@@ -658,10 +663,14 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
 	// that is displayed in the menu of Android / Mobile Safari.
 	if (isAndroid) { 
                bubbleInner.style.font = '0.625em sans-serif';
-               if (this.getAndroidVersion_() < this.getVersion_(4, 0)) {
+               if (this.getAndroidVersion_() < this.getVersion_(3, 0)) {
  		  bubbleInner.innerHTML = this.msg.android;
                } else {
- 		  bubbleInner.innerHTML = this.msg.android4;
+                  if (this.getAndroidVersion_() < this.getVersion_(4, 0)) {
+  		    bubbleInner.innerHTML = this.msg.android3;
+                  } else {
+  		    bubbleInner.innerHTML = this.msg.android4;
+                  }
                }
 	} else if(isBlackBerry) {
 		bubbleInner.innerHTML = this.msg.blackberry;
@@ -700,7 +709,7 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
     arrow.style.WebkitTransform = 'rotate(180deg)';
     arrow.style.top = '-19px';
     arrow.style.left = '111px';
-  } else if (this.getAndroidVersion_() >= this.getVersion_(4, 0)) {
+  } else if (this.getAndroidVersion_() >= this.getVersion_(3, 0)) {
     arrow.style.WebkitTransform = 'scale(1, -1)';
     arrow.style.top = '-19px';
     arrow.style.left = '180px';

@@ -1,6 +1,8 @@
 google.bookmarkbubble.Bubble.prototype.msg = {
   android: 
     'メニューボタンを押し<br /><b>ブックマークを保存</b>でブックマークへ追加後、保存した<b>ブックマークを長押し</b>し"<b>ホームにショートカットを追加"</b>を選択して<b>このアプリケーションをインストール</b>してください',
+  android3: 
+    '<img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID3_BOOKMARK_DATA_URL_ +'" style="height: 1.5em;display: inline-block;padding:0;margin:0;" />をタッチし<br />追加先に"<b>ホーム画面</b>を選択し、この<b>アプリケーションをインストール</b>してください',
   android4: 
     '「・・・」アイコンをタッチし<br />"<b>ブックマーク保存</b>を選択後<br />"<b>追加先</b>"に"<b>ホーム画面</b>"を選択し、この<b>アプリケーションをインストール</b>してください',
   blackberry: 
