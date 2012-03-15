@@ -650,7 +650,7 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
     bubbleInner.style.margin = isIpad ? '0 0 0 82px' : '0 auto';
   } 
   bubbleInner.style.border = '2px solid #fff';
-  bubbleInner.style.padding = '1em 1em 1em 0.5em';
+  bubbleInner.style.padding = '1em 1.5em 1em 0.5em';
   bubbleInner.style.WebkitBorderRadius = '8px';
   bubbleInner.style.WebkitBoxShadow = '0 0 8px rgba(0, 0, 0, 0.7)';
   bubbleInner.style.WebkitBackgroundSize = '100% 8px';
