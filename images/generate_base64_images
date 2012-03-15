@@ -17,7 +17,7 @@
 # Generates base64 versions of images so they can be inlined using the 'data:'
 # URI scheme.
 
-declare -ra IMAGE_FILES=( close.png arrow.png )
+declare -ra IMAGE_FILES=( close.png arrow.png bookmark.png bookmark-android4.png )
 
 for image in ${IMAGE_FILES[@]}; do
   OUT="$image.base64"
