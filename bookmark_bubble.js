@@ -1,7 +1,7 @@
 /*
   Modified by Robert Gerald Porter, for Weever Apps Inc.
   
-  Version:	1.0.1
+  Version:	1.1.2
   Release:	October 21, 2011
   
   Based upon Mobile Bookmark Bubble by Gooogle Inc., original copyrights and license below.
@@ -20,6 +20,7 @@
                         - Internationalization and Japanese translation.
                         - Optimize bubble icon size.
   1.1.1 :       - Android 4.0 support.
+  1.1.2 :       - Android 4.0 Tablet / Mobile both support.
   
   ##########################
 
@@ -252,7 +253,7 @@ google.bookmarkbubble.Bubble.prototype.IMAGE_PLAYBOOK_BOOKMARK_DATA_URL_ = 'data
 google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID3_BOOKMARK_DATA_URL_ = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAACMUlEQVRYR+2WzcdqURTGIxGJSEQiEpGIlGgUKY0SiWiURmnyJiLRIJESKY0S6R9d129TqnPq7HN6r1zuQxzb2ms961kfO5d8Ga4vx5d/m0C/3xd+n+AjBeLxuMRisU/iOy/BYrEQCCSTSZnP545JOFagUCjIcDiUwWAgfDuFIwLH4/FB+mg0Kpw5gSMCjUZDqtXqLV6tVpN6ve4kvrMeIOP9fn8LuNvtHDejbQUYu2w2a8g2k8mofrALUwJkN5vN5OfnR3q9niB5qVRSzeb3+2U6nRriMAk+n0/ZYMudbrerGhV7fK5WK8O9BwJk4HK5BInz+bzKtFwuS6vVUkRGo5Gs1+uXSW42GxXwSpq7KAOpSCSifD8vLoMCGAQCgYca25X12X673UooFDLdmqYlQDKv1yvj8fjT2Eo1fE0mE1NfL5uQmlFv5HQKegA1Kc0rvJ2Cy+Ui4XBYmHO7YE9w93Q6vb2qNYbsezpbF8ViUdLptJa5FgGUCAaDWg6xpeGsMr860yJAUzJOukilUtovpBaBdrttqw/omWazqcVXiwALiXF6Bmdm48V5Lpf7PQL86zkcDjeH1JeScM6P7/vnmG+2qQ4sFWCL8c/nCsrBbHc6HcPZvexMzrv5125CFlGlUpHlcqnmmnKcz2dDcqjCzmdaeC94B3SWmKUCNJTb7ZZEImH6Cj4z4VVEMY/Ho4hbwZIAI4XsdsEdnWVkScBu4Ht7s/f/2d9fJaBD/j+BryvwBySPr9aPfFVqAAAAAElFTkSuQmCC';
 
 
-google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID4_BOOKMARK_DATA_URL_ = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABYSURBVFhH7ZRBCgAgDMOs//+zimdPpVCQ7AMrWTOtM6M4s7j7riYABORYIOnZXUcoTgCBOgHLguT7tgKgYfIE9RISwLIg2QErABomT4AFdQKWBXQAAl8R2B3oJR7LKvEUAAAAAElFTkSuQmCC';
+google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID4_MOBILE_BOOKMARK_DATA_URL_ = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAABYSURBVFhH7ZRBCgAgDMOs//+zimdPpVCQ7AMrWTOtM6M4s7j7riYABORYIOnZXUcoTgCBOgHLguT7tgKgYfIE9RISwLIg2QErABomT4AFdQKWBXQAAl8R2B3oJR7LKvEUAAAAAElFTkSuQmCC';
 
 /**
  * Popup message to create shortcut to Home.
@@ -263,7 +264,7 @@ google.bookmarkbubble.Bubble.prototype.msg = {
   android3: 
     '<b>Install this app:</b><br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID3_BOOKMARK_DATA_URL_ +'" style="height: 1.5em;display: inline-block;padding:0;margin:0;" />,<br /> select "<b>Add to</b>" and then "<b>Home screen</b>"',
   android4: 
-    '<b>Install this app:</b><br /> 1) Tap "..." icon,<br /> 2) Select "<b>Save to bookmarks</b>",<br /> 3) Select "<b>Add to</b>" and then "<b>Home</b>"',
+    '<b>Install this app:</b><br /> 1) Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID4_MOBILE_BOOKMARK_DATA_URL_ +'" style="height: 1.5em;display: inline-block;padding:0;margin:0;" />,<br /> 2) Select "<b>Save to bookmarks</b>",<br /> 3) Select "<b>Add to</b>" and then "<b>Home</b>"',
   blackberry: 
     '<b>Install this app:</b><br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_BLACKBERRY_ICON_DATA_URL_ +'" style="height: 1em;display: inline-block;padding:0;margin:0" />, select "<b>Add to Home Screen</b>"',
   playbook: 
@@ -518,6 +519,10 @@ google.bookmarkbubble.Bubble.prototype.getAndroidVersion_ = function() {
 };
 
 
+google.bookmarkbubble.Bubble.prototype.isMobile_ = function() {
+  return window.navigator.userAgent.indexOf("Mobile Safari") >= 0;
+};
+
 /**
  * Positions the bubble at the bottom of the viewport using an animated
  * transition.
@@ -669,10 +674,10 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
                if (this.getAndroidVersion_() < this.getVersion_(3, 0)) {
  		  bubbleInner.innerHTML = this.msg.android;
                } else {
-                  if (this.getAndroidVersion_() < this.getVersion_(4, 0)) {
-  		    bubbleInner.innerHTML = this.msg.android3;
-                  } else {
+                  if ((this.getAndroidVersion_() >= this.getVersion_(4, 0)) && this.isMobile_()) {
   		    bubbleInner.innerHTML = this.msg.android4;
+                  } else {
+  		    bubbleInner.innerHTML = this.msg.android3;
                   }
                }
 	} else if(isBlackBerry) {
