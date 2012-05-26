@@ -683,7 +683,7 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
 	} else if(isBlackBerry) {
 		bubbleInner.innerHTML = this.msg.blackberry;
 	} else if(isPlayBook) {
-		bubbleInner.innerHTML = this.msg.playback;
+		bubbleInner.innerHTML = this.msg.playbook;
 		bubbleInner.style.position = 'absolute';
 		bubbleInner.style.right = '0px';
 	} else {
