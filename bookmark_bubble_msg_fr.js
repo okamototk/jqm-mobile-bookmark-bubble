@@ -5,6 +5,8 @@ google.bookmarkbubble.Bubble.prototype.msg = {
     '<b>Installer cette app:</b><br /> Appuyez sur <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID3_BOOKMARK_DATA_URL_ +'" style="height: 1.5em;display: inline-block;padding:0;margin:0;" />,<br /> choisir "<b>Ajouter à</b>" et "<b>Ecran d\'accueil</b>"',
   android4: 
     '<b>Installer cette app:</b><br /> 1) Appuyez sur <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID4_MOBILE_BOOKMARK_DATA_URL_ +'" style="height: 1.5em;display: inline-block;padding:0;margin:0;" />,<br /> 2) Select "<b>Sauver dans les favoris</b>",<br /> 3) Choisir "<b>Ajouter à</b>" et "<b>Ecran d\'accueil</b>"',
+  android41:
+    '<b>Installer cette app:</b><br /> 1) Ajouter un favori,<br /> 2) Appuyez et maintenez le favori,<br /> 3) Select "<b>Ajouter raccourci écran d\'accueil</b>"',
   blackberry: 
     '<b>Installer cette app:</b><br /> Appuyez sur <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_BLACKBERRY_ICON_DATA_URL_ +'" style="height: 1em;display: inline-block;padding:0;margin:0" />, choisir "<b>Ajouter à l\'écran d\'accueil</b>"',
   playbook: 
