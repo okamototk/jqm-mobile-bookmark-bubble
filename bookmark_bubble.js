@@ -1,27 +1,27 @@
 /*
   Modified by Robert Gerald Porter, for Weever Apps Inc.
-  
+
   Version:	1.1.2
   Release:	October 21, 2011
-  
-  Based upon Mobile Bookmark Bubble by Gooogle Inc., original copyrights and license below.
-  
+
+  Based upon Mobile Bookmark Bubble by Google Inc., original copyrights and license below.
+
   Changelog:
-  
+
   1.0.1	:	- First public release of fork.
-  			- Added support for Android phones, Blackberry Touch Smartphones (OS6+), BlackBerry PlayBook.
-  			- Modified colour and layout.
-  			- Added WebkitBackgroundSize = "contain" to handle high-resolution icons
-  			- Added base64-encoded images for iOS Safari "forward" button, PlayBook "save bookmark" icon, BlackBerry button icon.
-  			- Fixed layout issue with close button.
-  			- Moved location of bubble on PlayBook to match location of the "save bookmark" UI.
-  1.1.0 :       - Fork by okamototk
-                        - Supprot jQuery Mobile.
-                        - Internationalization and Japanese translation.
-                        - Optimize bubble icon size.
-  1.1.1 :       - Android 4.0 support.
-  1.1.2 :       - Android 4.0 Tablet / Mobile both support.
-  
+          - Added support for Android phones, Blackberry Touch Smartphones (OS6+), BlackBerry PlayBook.
+          - Modified colour and layout.
+          - Added WebkitBackgroundSize = "contain" to handle high-resolution icons
+          - Added base64-encoded images for iOS Safari "forward" button, PlayBook "save bookmark" icon, BlackBerry button icon.
+          - Fixed layout issue with close button.
+          - Moved location of bubble on PlayBook to match location of the "save bookmark" UI.
+  1.1.0 : - Fork by okamototk
+          - Support jQuery Mobile.
+          - Internationalization and Japanese translation.
+          - Optimize bubble icon size.
+  1.1.1 : - Android 4.0 support.
+  1.1.2 : - Android 4.0 Tablet / Mobile both support.
+
   ##########################
 
   Copyright 2010 Google Inc.
@@ -259,17 +259,17 @@ google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID4_MOBILE_BOOKMARK_DATA_URL_ 
  * Popup message to create shortcut to Home.
  */
 google.bookmarkbubble.Bubble.prototype.msg = {
-  android: 
+  android:
     '<b>Install this app:</b><br /> 1) Add to Bookmarks,<br /> 2) Tap and Hold the bookmark,<br /> 3) Select "<b>Add Shortcut to Home</b>"',
-  android3: 
+  android3:
     '<b>Install this app:</b><br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID3_BOOKMARK_DATA_URL_ +'" style="height: 1.5em;display: inline-block;padding:0;margin:0;" />,<br /> select "<b>Add to</b>" and then "<b>Home screen</b>"',
-  android4: 
+  android4:
     '<b>Install this app:</b><br /> 1) Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID4_MOBILE_BOOKMARK_DATA_URL_ +'" style="height: 1.5em;display: inline-block;padding:0;margin:0;" />,<br /> 2) Select "<b>Save to bookmarks</b>",<br /> 3) Select "<b>Add to</b>" and then "<b>Home</b>"',
-  android41: 
+  android41:
     '<b>Install this app:</b><br /> 1) Add to Bookmarks,<br /> 2) Tap and Hold the bookmark,<br /> 3) Select "<b>Add Shortcut</b>"',
-  blackberry: 
+  blackberry:
     '<b>Install this app:</b><br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_BLACKBERRY_ICON_DATA_URL_ +'" style="height: 1em;display: inline-block;padding:0;margin:0" />, select "<b>Add to Home Screen</b>"',
-  playbook: 
+  playbook:
      '<b>Install this app:</b><br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_PLAYBOOK_BOOKMARK_DATA_URL_ +'" style="height: 1.5em;display: inline-block;padding:0;margin:0;" />, select  <br />"<b>Add to Home Screen</b>"',
   ios42orlater :
      '<b>Install this app</b>:<br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_SAFARI_FORWARD_DATA_URL_ +'" style="height: 1em;display: inline-block;padding: 0;margin: 0" /> and then <b>"Add to Home Screen"</b>',
@@ -640,7 +640,7 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   var isAndroid = this.isAndroid_();
   var isPlayBook = this.isPlayBook_();
   var isBlackBerry = this.isBlackBerry_();
-  
+
 
   bubble.style.position = 'absolute';
   bubble.style.zIndex = 100000;
@@ -655,7 +655,7 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
     bubbleInner.style.margin = '0 0 0 ' +(window.innerWidth - 240) + 'px';
   } else {
     bubbleInner.style.margin = isIpad ? '0 0 0 82px' : '0 auto';
-  } 
+  }
   bubbleInner.style.border = '2px solid #fff';
   bubbleInner.style.padding = '1em 1.5em 1em 0.5em';
   bubbleInner.style.WebkitBorderRadius = '8px';
@@ -668,10 +668,10 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
           'from(#b3caed), to(#cddcf3)) no-repeat bottom';
   bubbleInner.style.font = '0.75em sans-serif';
   bubble.appendChild(bubbleInner);
-	
+
 	// The "Add to Home Screen" text is intended to be the exact same text
 	// that is displayed in the menu of Android / Mobile Safari.
-	if (isAndroid) { 
+	if (isAndroid) {
                bubbleInner.style.font = '0.625em sans-serif';
                if (this.getAndroidVersion_() < this.getVersion_(3, 0)) {
  		  bubbleInner.innerHTML = this.msg.android;
@@ -693,7 +693,7 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
 		bubbleInner.style.position = 'absolute';
 		bubbleInner.style.right = '0px';
 	} else {
-	
+
 	  if (this.getIosVersion_() >= this.getVersion_(4, 2)) {
 	  bubbleInner.innerHTML = this.msg.ios42orlater;
 	  } else {
@@ -712,7 +712,7 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   icon.style.WebkitBorderRadius = '10px';
   icon.style.WebkitBoxShadow = '0 2px 5px rgba(0, 0, 0, 0.4)';
   bubbleInner.insertBefore(icon, bubbleInner.firstChild);
-	
+
   var arrow = document.createElement('div');
   arrow.style.backgroundImage = 'url(' + this.IMAGE_ARROW_DATA_URL_ + ')';
   arrow.style.width = '25px';
