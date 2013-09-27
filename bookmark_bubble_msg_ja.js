@@ -13,5 +13,7 @@ google.bookmarkbubble.Bubble.prototype.msg = {
      '<b>Install this app:</b><br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_PLAYBOOK_BOOKMARK_DATA_URL_ +'" style="height: 1.5em;display: inline-block;padding:0;margin:0;" />, select  <br />"<b>Add to Home Screen</b>"',
   ios42orlater :
      '<img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_SAFARI_FORWARD_DATA_URL_ +'" style="height: 1em;display: inline-block;padding: 0;margin: 0" />をタップし、<b>"ホーム画面に追加"</b>を選択して<b>このアプリケーションをインストール</b>してください',
+  ios7orlater :
+     '<img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_IOS7_FORWARD_DATA_URL_ +'" style="height: 1em;display: inline-block;padding: 0;margin: 0" />をタップし、<b>"ホーム画面に追加"</b>を選択して<b>このアプリケーションをインストール</b>してください',
   ioslegacy: '<b style="font-size:15px">+</b>をタップし、<b>"ホーム画面に追加"</b>を選択して<b>このアプリケーションをインストール</b>してください'
 };
