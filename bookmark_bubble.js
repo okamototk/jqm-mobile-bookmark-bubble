@@ -1,14 +1,14 @@
 /*
   Modified by Robert Gerald Porter, for Weever Apps Inc.
 
-  Version:	1.1.3
-  Release:	October 21, 2011
+  Version:  1.1.3
+  Release:  October 21, 2011
 
   Based upon Mobile Bookmark Bubble by Google Inc., original copyrights and license below.
 
   Changelog:
 
-  1.0.1	:	- First public release of fork.
+  1.0.1  :  - First public release of fork.
           - Added support for Android phones, Blackberry Touch Smartphones (OS6+), BlackBerry PlayBook.
           - Modified colour and layout.
           - Added WebkitBackgroundSize = "contain" to handle high-resolution icons
@@ -676,9 +676,9 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   bubbleInner.style.font = '0.75em sans-serif';
   bubble.appendChild(bubbleInner);
 
-	// The "Add to Home Screen" text is intended to be the exact same text
-	// that is displayed in the menu of Android / Mobile Safari.
-	if (isAndroid) {
+  // The "Add to Home Screen" text is intended to be the exact same text
+  // that is displayed in the menu of Android / Mobile Safari.
+  if (isAndroid) {
     bubbleInner.style.font = '0.625em sans-serif';
     if (this.getAndroidVersion_() < this.getVersion_(3, 0)) {
       bubbleInner.innerHTML = this.msg.android;
@@ -698,24 +698,24 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
     }
   }
   else if (isBlackBerry) {
-		bubbleInner.innerHTML = this.msg.blackberry;
-	}
+    bubbleInner.innerHTML = this.msg.blackberry;
+  }
   else if(isPlayBook) {
-		bubbleInner.innerHTML = this.msg.playbook;
-		bubbleInner.style.position = 'absolute';
-		bubbleInner.style.right = '0px';
-	}
+    bubbleInner.innerHTML = this.msg.playbook;
+    bubbleInner.style.position = 'absolute';
+    bubbleInner.style.right = '0px';
+  }
   else {
-	  if (this.getIosVersion_() >= this.getVersion_(7, 0)) {
+    if (this.getIosVersion_() >= this.getVersion_(7, 0)) {
       bubbleInner.innerHTML = this.msg.ios7orlater;
     }
     else if (this.getIosVersion_() >= this.getVersion_(4, 2)) {
       bubbleInner.innerHTML = this.msg.ios42orlater;
-	  }
+    }
     else {
-	    bubbleInner.innerHTML = this.msg.ioslegacy;
-	  }
-	}
+      bubbleInner.innerHTML = this.msg.ioslegacy;
+    }
+  }
 
   var icon = document.createElement('div');
   icon.style['float'] = 'left';
