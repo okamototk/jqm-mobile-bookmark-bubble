@@ -1,27 +1,29 @@
 /*
   Modified by Robert Gerald Porter, for Weever Apps Inc.
-  
-  Version:	1.1.2
-  Release:	October 21, 2011
-  
-  Based upon Mobile Bookmark Bubble by Gooogle Inc., original copyrights and license below.
-  
+
+  Version:  1.1.3
+  Release:  October 21, 2011
+
+  Based upon Mobile Bookmark Bubble by Google Inc., original copyrights and license below.
+
   Changelog:
-  
-  1.0.1	:	- First public release of fork.
-  			- Added support for Android phones, Blackberry Touch Smartphones (OS6+), BlackBerry PlayBook.
-  			- Modified colour and layout.
-  			- Added WebkitBackgroundSize = "contain" to handle high-resolution icons
-  			- Added base64-encoded images for iOS Safari "forward" button, PlayBook "save bookmark" icon, BlackBerry button icon.
-  			- Fixed layout issue with close button.
-  			- Moved location of bubble on PlayBook to match location of the "save bookmark" UI.
-  1.1.0 :       - Fork by okamototk
-                        - Supprot jQuery Mobile.
-                        - Internationalization and Japanese translation.
-                        - Optimize bubble icon size.
-  1.1.1 :       - Android 4.0 support.
-  1.1.2 :       - Android 4.0 Tablet / Mobile both support.
-  
+
+  1.0.1  :  - First public release of fork.
+          - Added support for Android phones, Blackberry Touch Smartphones (OS6+), BlackBerry PlayBook.
+          - Modified colour and layout.
+          - Added WebkitBackgroundSize = "contain" to handle high-resolution icons
+          - Added base64-encoded images for iOS Safari "forward" button, PlayBook "save bookmark" icon, BlackBerry button icon.
+          - Fixed layout issue with close button.
+          - Moved location of bubble on PlayBook to match location of the "save bookmark" UI.
+  1.1.0 : - Fork by okamototk
+          - Support jQuery Mobile.
+          - Internationalization and Japanese translation.
+          - Optimize bubble icon size.
+  1.1.1 : - Android 4.0 support.
+  1.1.2 : - Android 4.0 Tablet / Mobile both support.
+  1.1.3 : - Fork by wiifm
+          - iOS7 support.
+
   ##########################
 
   Copyright 2010 Google Inc.
@@ -247,6 +249,9 @@ google.bookmarkbubble.Bubble.prototype.IMAGE_BLACKBERRY_ICON_DATA_URL_ = 'data:i
 google.bookmarkbubble.Bubble.prototype.IMAGE_SAFARI_FORWARD_DATA_URL_ = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAkCAYAAAD2IghRAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAgZJREFUeNrsl99HQ2EYx8/WRImyP2BELFGWJWIXxW4SdVOKSJFSiixdJyK66WKJXaQUkbopdR/RbpqNSCNKRCQ2IrpZ35fncGRnO++Pnc7JvnwutvOec74e3+d5z+uJRqOazfoAE+BS5iFezX75wQXYBLVuMq5rBVyBZrcZZ+oBaTDoNuNMjeAMxHmi4wTjuhbADWhxm3GmMEVn2G3GmRrACUiAOrNFPlAQePgzxzRg6yJkKMTxjhlq3hGQLWacVxnQV2ZNkDLLpkVAovrt4BbMg0OZqOTIdM7keoQmxAMZDyiKzgHYM0aH1/iaiWm9MtciM9miJqlx28yi4hHYAddltm8OBalAiz6Jh9SAHWoiO8Xe65cxHv8D0y9gDCRF53gMzNls+hx0MNOiGxCbxRsC97FZnBK47xssgSGQl5njiTKNmKKqJMnsPfgyXOfZ8J5oA0rJbkCjoLvI/3dgnzaJd0XROAXTxirLGI/9+s2OX6uCESgVjWWwXWoRj/GwodpvlLtjxQ34SNHIqPw61D81WRxaK2CaRaPTimle4wNgl07oeYWGWePOUqU/rd5kNSrs4+aVmkWlsrShZHhv9HJUpV+x6SPQZWK6yYknIFaEKTBuEo1emt+aqqmiSvUlrm3RtNKcaNxMaZ6jnZMOy6FKNKfjVDVut4o1Z6Fa8arxf2T8R4ABAMxNWkZtHiMqAAAAAElFTkSuQmCC';
 
 
+google.bookmarkbubble.Bubble.prototype.IMAGE_IOS7_FORWARD_DATA_URL_ = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAtCAMAAADm86mrAAABMlBMVEUAAAACbP/k8v4AWf+qzf1hpf0HdP8Cbv+21v0fhf2v0P282P0xkv200/1CnP0AbP8Ab/8Ae/+22P0Bd/8Aav8ReP58sv4OeP8BdP8HeP/u9v4Gb/8Abv/Y6/7R5v3V6v2hzf1apf1Gmv1Pov5Vof0Sef5Wo/2v1P0efv5Zpf2Ow/2y0/252P0Aaf+82/30+f71+f4EcP+52f2Dtv4Yfv8ef/76/P4AU/+szf2sz/2v0/35/P4JaP+/2v34+/6q0f1Wof0AXf+myv6t0P0AXP/k8f7y+P4vkP73+v7+//8Abf8AYf8AZv8AZf8AaP8KdP/////8/f+01P0Oef/z+f7T5/37/f/e7v71+v4AY/+y1P32+/6v0f34/P4BbP/9/v8AZ//3+/601f11rv0Ldf8AZP81S/JRAAAAAXRSTlMAQObYZgAAAP5JREFUeNrt0NlOwkAUgOEDAgIqKqs7Ki6AyuIGLmyuFFpAgdpapFO07/8KNCk0mQba4coL+l+ci5MvJ5OBye0dfgB5u5uNGLn+2lhbRwctQh3d8SwHfKtHhLe3Q+xSkPUzJ0S6drwFK7QI+/WEue5m4xKAFynjFJVN/+e93VFmD/0os9TomvFOFTQOr0CSxuF/+C0njOIeNK7thIyOX9OyGlN5HPNUbrTjL/hPnLdvLr/Vngtjns7fq6vzJH+G8+aV0dtFWXf979eIS/LA4nPH7/jiLPzpRZiFt97AjONZ3OJ4gp43w0ac1fOIkxKnRtmRG+eu+mJ/arbagkNlQ2Wzhs4sFDqpAAAAAElFTkSuQmCC';
+
+
 google.bookmarkbubble.Bubble.prototype.IMAGE_PLAYBOOK_BOOKMARK_DATA_URL_ = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAMAAADypuvZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NjhEMjhFOTZGMzI4MTFFMDk1OUZGOTUxMzQxOTZBOTUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NjhEMjhFOTdGMzI4MTFFMDk1OUZGOTUxMzQxOTZBOTUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo2OEQyOEU5NEYzMjgxMUUwOTU5RkY5NTEzNDE5NkE5NSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo2OEQyOEU5NUYzMjgxMUUwOTU5RkY5NTEzNDE5NkE5NSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pmi5WPMAAAAwUExURb29vdPT08fHx5aWluTk5GlpaXx8fOzs7KysrPX19VZWVoiIiP39/WFhYaKiov///2c8oVAAAAAQdFJOU////////////////////wDgI10ZAAABEElEQVR42uzW0ZKDIAwF0CCRACH0//92rdVaBYHs085seSQeB66QER6/GPBF/wsFCOVkjLGJaCY9ggh6xJHVCCUKahEsdVCixEudkw6RLHWhz6fPo4ZgrYAO8VphFUJZK0V+zT3B9j7QIN4Qd9CU/XvY99LtMZmnEiHH9mCsLC/5pvGpvqdpviViboNAd2McNm5usFVjQ/O6VzfmU69HFBubp4HGgmc141A3OqfhhloYyTlsGkFw2RMMoHRN3aY+oiI96iOzB+D3QEwfbV/X0oO2hfo+Wt8vrxmQRuhw6Q5uX5FxtU5RoGfg+TifId+G/jFrr2dtOYu2g0iKq4OuHvqBTC6vTsjm+x/xJ9CPAAMAEPqQqkGB5zYAAAAASUVORK5CYII=';
 
 
@@ -259,18 +264,22 @@ google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID4_MOBILE_BOOKMARK_DATA_URL_ 
  * Popup message to create shortcut to Home.
  */
 google.bookmarkbubble.Bubble.prototype.msg = {
-  android: 
+  android:
     '<b>Install this app:</b><br /> 1) Add to Bookmarks,<br /> 2) Tap and Hold the bookmark,<br /> 3) Select "<b>Add Shortcut to Home</b>"',
-  android3: 
+  android3:
     '<b>Install this app:</b><br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID3_BOOKMARK_DATA_URL_ +'" style="height: 1.5em;display: inline-block;padding:0;margin:0;" />,<br /> select "<b>Add to</b>" and then "<b>Home screen</b>"',
-  android4: 
+  android4:
     '<b>Install this app:</b><br /> 1) Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID4_MOBILE_BOOKMARK_DATA_URL_ +'" style="height: 1.5em;display: inline-block;padding:0;margin:0;" />,<br /> 2) Select "<b>Save to bookmarks</b>",<br /> 3) Select "<b>Add to</b>" and then "<b>Home</b>"',
-  blackberry: 
+  android41:
+    '<b>Install this app:</b><br /> 1) Add to Bookmarks,<br /> 2) Tap and Hold the bookmark,<br /> 3) Select "<b>Add Shortcut</b>"',
+  blackberry:
     '<b>Install this app:</b><br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_BLACKBERRY_ICON_DATA_URL_ +'" style="height: 1em;display: inline-block;padding:0;margin:0" />, select "<b>Add to Home Screen</b>"',
-  playbook: 
+  playbook:
      '<b>Install this app:</b><br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_PLAYBOOK_BOOKMARK_DATA_URL_ +'" style="height: 1.5em;display: inline-block;padding:0;margin:0;" />, select  <br />"<b>Add to Home Screen</b>"',
   ios42orlater :
      '<b>Install this app</b>:<br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_SAFARI_FORWARD_DATA_URL_ +'" style="height: 1em;display: inline-block;padding: 0;margin: 0" /> and then <b>"Add to Home Screen"</b>',
+  ios7orlater :
+     '<b>Install this app</b>:<br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_IOS7_FORWARD_DATA_URL_ +'" style="height: 2em;display: inline-block;padding: 0;margin: 0" /> and then <b>"Add to Home Screen"</b>',
   ioslegacy: '<b>Install this app</b>:<br /> Tap <b style="font-size:15px">+</b> and then <b>"Add to Home Screen"</b>'
 };
 
@@ -638,7 +647,7 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   var isAndroid = this.isAndroid_();
   var isPlayBook = this.isPlayBook_();
   var isBlackBerry = this.isBlackBerry_();
-  
+
 
   bubble.style.position = 'absolute';
   bubble.style.zIndex = 100000;
@@ -653,7 +662,7 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
     bubbleInner.style.margin = '0 0 0 ' +(window.innerWidth - 240) + 'px';
   } else {
     bubbleInner.style.margin = isIpad ? '0 0 0 82px' : '0 auto';
-  } 
+  }
   bubbleInner.style.border = '2px solid #fff';
   bubbleInner.style.padding = '1em 1.5em 1em 0.5em';
   bubbleInner.style.WebkitBorderRadius = '8px';
@@ -666,34 +675,47 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
           'from(#b3caed), to(#cddcf3)) no-repeat bottom';
   bubbleInner.style.font = '0.75em sans-serif';
   bubble.appendChild(bubbleInner);
-	
-	// The "Add to Home Screen" text is intended to be the exact same text
-	// that is displayed in the menu of Android / Mobile Safari.
-	if (isAndroid) { 
-               bubbleInner.style.font = '0.625em sans-serif';
-               if (this.getAndroidVersion_() < this.getVersion_(3, 0)) {
- 		  bubbleInner.innerHTML = this.msg.android;
-               } else {
-                  if ((this.getAndroidVersion_() >= this.getVersion_(4, 0)) && this.isMobile_()) {
-  		    bubbleInner.innerHTML = this.msg.android4;
-                  } else {
-  		    bubbleInner.innerHTML = this.msg.android3;
-                  }
-               }
-	} else if(isBlackBerry) {
-		bubbleInner.innerHTML = this.msg.blackberry;
-	} else if(isPlayBook) {
-		bubbleInner.innerHTML = this.msg.playbook;
-		bubbleInner.style.position = 'absolute';
-		bubbleInner.style.right = '0px';
-	} else {
-	
-	  if (this.getIosVersion_() >= this.getVersion_(4, 2)) {
-	  bubbleInner.innerHTML = this.msg.ios42orlater;
-	  } else {
-	    bubbleInner.innerHTML = this.msg.ioslegacy;
-	  }
-	}
+
+  // The "Add to Home Screen" text is intended to be the exact same text
+  // that is displayed in the menu of Android / Mobile Safari.
+  if (isAndroid) {
+    bubbleInner.style.font = '0.625em sans-serif';
+    if (this.getAndroidVersion_() < this.getVersion_(3, 0)) {
+      bubbleInner.innerHTML = this.msg.android;
+    }
+    else {
+      if ((this.getAndroidVersion_() < this.getVersion_(4, 0)) && this.isMobile_()) {
+        bubbleInner.innerHTML = this.msg.android3;
+      }
+      else {
+        if ((this.getAndroidVersion_() < this.getVersion_(4, 1)) && this.isMobile_()) {
+          bubbleInner.innerHTML = this.msg.android4;
+        }
+        else {
+          bubbleInner.innerHTML = this.msg.android41;
+        }
+      }
+    }
+  }
+  else if (isBlackBerry) {
+    bubbleInner.innerHTML = this.msg.blackberry;
+  }
+  else if(isPlayBook) {
+    bubbleInner.innerHTML = this.msg.playbook;
+    bubbleInner.style.position = 'absolute';
+    bubbleInner.style.right = '0px';
+  }
+  else {
+    if (this.getIosVersion_() >= this.getVersion_(7, 0)) {
+      bubbleInner.innerHTML = this.msg.ios7orlater;
+    }
+    else if (this.getIosVersion_() >= this.getVersion_(4, 2)) {
+      bubbleInner.innerHTML = this.msg.ios42orlater;
+    }
+    else {
+      bubbleInner.innerHTML = this.msg.ioslegacy;
+    }
+  }
 
   var icon = document.createElement('div');
   icon.style['float'] = 'left';
@@ -706,7 +728,7 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   icon.style.WebkitBorderRadius = '10px';
   icon.style.WebkitBoxShadow = '0 2px 5px rgba(0, 0, 0, 0.4)';
   bubbleInner.insertBefore(icon, bubbleInner.firstChild);
-	
+
   var arrow = document.createElement('div');
   arrow.style.backgroundImage = 'url(' + this.IMAGE_ARROW_DATA_URL_ + ')';
   arrow.style.width = '25px';
