@@ -147,6 +147,7 @@ google.bookmarkbubble.Bubble.prototype.showIfAllowedWhenLoaded =
   var self = this;
   // Attach to self to avoid garbage collection.
   var img = self.loadImg_ = document.createElement('img');
+  img.className = 'bookmark-bubble-icon';
   img.src = self.getIconUrl_();
   img.onload = function() {
     if (img.complete) {
@@ -267,19 +268,19 @@ google.bookmarkbubble.Bubble.prototype.msg = {
   android:
     '<b>Install this app:</b><br /> 1) Add to Bookmarks,<br /> 2) Tap and Hold the bookmark,<br /> 3) Select "<b>Add Shortcut to Home</b>"',
   android3:
-    '<b>Install this app:</b><br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID3_BOOKMARK_DATA_URL_ +'" style="height: 1.5em;display: inline-block;padding:0;margin:0;" />,<br /> select "<b>Add to</b>" and then "<b>Home screen</b>"',
+    '<b>Install this app:</b><br /> Tap <img class="bookmark-bubble-menu-icon" src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID3_BOOKMARK_DATA_URL_ +'" style="height: 1.5em;display: inline-block;padding:0;margin:0;" />,<br /> select "<b>Add to</b>" and then "<b>Home screen</b>"',
   android4:
-    '<b>Install this app:</b><br /> 1) Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID4_MOBILE_BOOKMARK_DATA_URL_ +'" style="height: 1.5em;display: inline-block;padding:0;margin:0;" />,<br /> 2) Select "<b>Save to bookmarks</b>",<br /> 3) Select "<b>Add to</b>" and then "<b>Home</b>"',
+    '<b>Install this app:</b><br /> 1) Tap <img class="bookmark-bubble-menu-icon" src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID4_MOBILE_BOOKMARK_DATA_URL_ +'" style="height: 1.5em;display: inline-block;padding:0;margin:0;" />,<br /> 2) Select "<b>Save to bookmarks</b>",<br /> 3) Select "<b>Add to</b>" and then "<b>Home</b>"',
   android41:
     '<b>Install this app:</b><br /> 1) Add to Bookmarks,<br /> 2) Tap and Hold the bookmark,<br /> 3) Select "<b>Add Shortcut</b>"',
   blackberry:
-    '<b>Install this app:</b><br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_BLACKBERRY_ICON_DATA_URL_ +'" style="height: 1em;display: inline-block;padding:0;margin:0" />, select "<b>Add to Home Screen</b>"',
+    '<b>Install this app:</b><br /> Tap <img class="bookmark-bubble-menu-icon" src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_BLACKBERRY_ICON_DATA_URL_ +'" style="height: 1em;display: inline-block;padding:0;margin:0" />, select "<b>Add to Home Screen</b>"',
   playbook:
-     '<b>Install this app:</b><br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_PLAYBOOK_BOOKMARK_DATA_URL_ +'" style="height: 1.5em;display: inline-block;padding:0;margin:0;" />, select  <br />"<b>Add to Home Screen</b>"',
+     '<b>Install this app:</b><br /> Tap <img class="bookmark-bubble-menu-icon" src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_PLAYBOOK_BOOKMARK_DATA_URL_ +'" style="height: 1.5em;display: inline-block;padding:0;margin:0;" />, select  <br />"<b>Add to Home Screen</b>"',
   ios42orlater :
-     '<b>Install this app</b>:<br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_SAFARI_FORWARD_DATA_URL_ +'" style="height: 1em;display: inline-block;padding: 0;margin: 0" /> and then <b>"Add to Home Screen"</b>',
+     '<b>Install this app</b>:<br /> Tap <img class="bookmark-bubble-menu-icon" src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_SAFARI_FORWARD_DATA_URL_ +'" style="height: 1em;display: inline-block;padding: 0;margin: 0" /> and then <b>"Add to Home Screen"</b>',
   ios7orlater :
-     '<b>Install this app</b>:<br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_IOS7_FORWARD_DATA_URL_ +'" style="height: 2em;display: inline-block;padding: 0;margin: 0" /> and then <b>"Add to Home Screen"</b>',
+     '<b>Install this app</b>:<br /> Tap <img class="bookmark-bubble-menu-icon" src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_IOS7_FORWARD_DATA_URL_ +'" style="height: 2em;display: inline-block;padding: 0;margin: 0" /> and then <b>"Add to Home Screen"</b>',
   ioslegacy: '<b>Install this app</b>:<br /> Tap <b style="font-size:15px">+</b> and then <b>"Add to Home Screen"</b>'
 };
 
@@ -642,13 +643,13 @@ google.bookmarkbubble.Bubble.prototype.getLink = function(rel) {
  * @private
  */
 google.bookmarkbubble.Bubble.prototype.build_ = function() {
-  var bubble = document.createElement('div');
   var isIpad = this.isIpad_();
   var isAndroid = this.isAndroid_();
   var isPlayBook = this.isPlayBook_();
   var isBlackBerry = this.isBlackBerry_();
 
-
+  var bubble = document.createElement('div');
+  bubble.className = 'bookmark-bubble';
   bubble.style.position = 'absolute';
   bubble.style.zIndex = 100000;
   bubble.style.width = '100%';
@@ -656,6 +657,7 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   bubble.style.top = '0';
 
   var bubbleInner = document.createElement('div');
+  bubbleInner.className = 'bookmark-bubble-inner';
   bubbleInner.style.position = 'relative';
   bubbleInner.style.width = '214px';
   if (this.getAndroidVersion_() >= this.getVersion_(3, 0)) {
@@ -718,6 +720,7 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   }
 
   var icon = document.createElement('div');
+  icon.className = 'bookmark-bubble-icon';
   icon.style['float'] = 'left';
   icon.style.width = '55px';
   icon.style.height = '55px';
@@ -730,6 +733,7 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   bubbleInner.insertBefore(icon, bubbleInner.firstChild);
 
   var arrow = document.createElement('div');
+  arrow.className = 'bookmark-bubble-arrow';
   arrow.style.backgroundImage = 'url(' + this.IMAGE_ARROW_DATA_URL_ + ')';
   arrow.style.width = '25px';
   arrow.style.height = '19px';
@@ -750,6 +754,7 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
   bubbleInner.appendChild(arrow);
 
   var close = document.createElement('a');
+  close.className = 'bookmark-bubble-close';
   close.onclick = google.bind(this.closeClickHandler_, this);
   close.style.position = 'absolute';
   close.style.display = 'block';
