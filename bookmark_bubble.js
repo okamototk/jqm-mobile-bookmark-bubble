@@ -272,6 +272,8 @@ google.bookmarkbubble.Bubble.prototype.msg = {
     '<b>Install this app:</b><br /> 1) Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID4_MOBILE_BOOKMARK_DATA_URL_ +'" style="height: 1.5em;display: inline-block;padding:0;margin:0;" />,<br /> 2) Select "<b>Save to bookmarks</b>",<br /> 3) Select "<b>Add to</b>" and then "<b>Home</b>"',
   android41:
     '<b>Install this app:</b><br /> 1) Add to Bookmarks,<br /> 2) Tap and Hold the bookmark,<br /> 3) Select "<b>Add Shortcut</b>"',
+  android44:
+    '<b>Install this app:</b><br /> 1) Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_ANDROID4_MOBILE_BOOKMARK_DATA_URL_ +'" style="height: 1.5em;display: inline-block;padding:0;margin:0;" />,<br /> 2) Select "<b>Add to homescreen</b>"',
   blackberry:
     '<b>Install this app:</b><br /> Tap <img src="'+ google.bookmarkbubble.Bubble.prototype.IMAGE_BLACKBERRY_ICON_DATA_URL_ +'" style="height: 1em;display: inline-block;padding:0;margin:0" />, select "<b>Add to Home Screen</b>"',
   playbook:
@@ -688,11 +690,16 @@ google.bookmarkbubble.Bubble.prototype.build_ = function() {
         bubbleInner.innerHTML = this.msg.android3;
       }
       else {
-        if ((this.getAndroidVersion_() < this.getVersion_(4, 1)) && this.isMobile_()) {
-          bubbleInner.innerHTML = this.msg.android4;
+        if ((this.getAndroidVersion_() >= this.getVersion_(4, 4)) && this.isMobile_()) {
+          bubbleInner.innerHTML = this.msg.android44;
         }
         else {
-          bubbleInner.innerHTML = this.msg.android41;
+          if ((this.getAndroidVersion_() < this.getVersion_(4, 1)) && this.isMobile_()) {
+            bubbleInner.innerHTML = this.msg.android4;
+          }
+          else {
+            bubbleInner.innerHTML = this.msg.android41;
+          }
         }
       }
     }
