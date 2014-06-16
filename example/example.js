@@ -37,7 +37,7 @@ $(document).bind("mobileinit", function(){
     var parameter = page_popup_bubble;
 
     bubble.hasHashParameter = function() {
-      return location.hash == "" && location.href.indexOf(parameter) == location.href.length-1;
+      return location.hash != "" && location.href.indexOf(parameter) == location.href.length - parameter.length;
     };
 
     bubble.setHashParameter = function() {
